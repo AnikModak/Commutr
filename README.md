@@ -170,6 +170,9 @@ We use [fast-check](https://github.com/dubzzz/fast-check) for property-based tes
 
 This repository is currently maintained by the project team.
 Feedback and suggestions are welcome via issues.
+This project is currently developed as part of the AWS AI for Bharat Hackathon.
+Future development and open collaboration may be explored post-hackathon.
+
 
 
 
