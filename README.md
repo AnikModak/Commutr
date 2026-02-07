@@ -1,7 +1,7 @@
 # 🚍 Commutr - Smart Public Transport Helper
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+[![PRs not-accepting](https://img.shields.io/badge/PRs-not%20accepting-red.svg)](http://makeapullrequest.com)
 
 > An AI-powered platform that helps commuters find the cheapest and most accessible public transport routes while providing neutral visibility to local businesses.
 
