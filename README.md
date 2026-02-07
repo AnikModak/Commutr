@@ -214,8 +214,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Contact
 
-- **Project Link**: [https://github.com/YOUR_USERNAME/commutr](https://github.com/AnikModak/commutr)
-- **Issues**: [https://github.com/YOUR_USERNAME/commutr/issues](https://github.com/AnikModak/commutr/issues)
+- **Project Link**: [https://github.com/AnikModak/commutr](https://github.com/AnikModak/commutr)
+- **Issues**: [https://github.com/AnikModak/commutr/issues](https://github.com/AnikModak/commutr/issues)
 
 ---
 
