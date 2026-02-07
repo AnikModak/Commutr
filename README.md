@@ -188,7 +188,7 @@ Future development and open collaboration may be explored post-hackathon.
 
 ## 🐛 Known Issues
 
-See the [Issues](https://github.com/YOUR_USERNAME/commutr/issues) page for a list of known issues and feature requests.
+See the [Issues](https://github.com/AnikModak/commutr/issues) page for a list of known issues and feature requests.
 
 ## 📄 License
 
