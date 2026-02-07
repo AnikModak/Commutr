@@ -1,0 +1,55 @@
+digraph UseCaseDiagram {
+    rankdir=LR;
+    node [shape=box, style=rounded];
+    
+    // Actors
+    subgraph cluster_actors {
+        label="Actors";
+        style=dashed;
+        User [shape=ellipse, style=filled, fillcolor=lightblue];
+        Shopkeeper [shape=ellipse, style=filled, fillcolor=lightgreen];
+    }
+    
+    // System boundary
+    subgraph cluster_system {
+        label="Public Transport Helper Platform";
+        style=solid;
+        color=black;
+        
+        // User use cases
+        EnterSource [label="Enter Source\nLocation"];
+        EnterDest [label="Enter Destination\nLocation"];
+        SelectPrefs [label="Select Travel\nPreferences"];
+        RequestRoute [label="Request Route\nGuidance"];
+        ViewRoute [label="View Optimized\nRoute"];
+        ViewFare [label="View Fare\nBreakdown"];
+        ViewAccessibility [label="View Accessibility\nInfo"];
+        DiscoverBusiness [label="Discover Nearby\nBusinesses"];
+        ReceiveNav [label="Receive Navigation\nInstructions"];
+        
+        // Shopkeeper use cases
+        RegisterBiz [label="Register Business"];
+        SubmitDetails [label="Submit Business\nDetails"];
+        PayFee [label="Pay Listing Fee"];
+        GetListed [label="Get Business\nListed"];
+        ViewMetrics [label="View Engagement\nMetrics"];
+    }
+    
+    // User connections
+    User -> EnterSource;
+    User -> EnterDest;
+    User -> SelectPrefs;
+    User -> RequestRoute;
+    User -> ViewRoute;
+    User -> ViewFare;
+    User -> ViewAccessibility;
+    User -> DiscoverBusiness;
+    User -> ReceiveNav;
+    
+    // Shopkeeper connections
+    Shopkeeper -> RegisterBiz;
+    Shopkeeper -> SubmitDetails;
+    Shopkeeper -> PayFee;
+    Shopkeeper -> GetListed;
+    Shopkeeper -> ViewMetrics [style=dashed, label="optional"];
+}

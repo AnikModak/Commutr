@@ -1,0 +1,91 @@
+digraph Architecture {
+    rankdir=TB;
+    node [shape=box, style="rounded,filled", fontname="Arial", fontsize=10];
+    edge [fontname="Arial", fontsize=9];
+    
+    graph [bgcolor=white, pad=0.5, ranksep=1.0, nodesep=0.8];
+    
+    // Client Layer
+    subgraph cluster_client {
+        label="Client Layer";
+        style=filled;
+        fillcolor="#E6F3FF";
+        
+        WebApp [fillcolor="#4A90E2", fontcolor=white, label="Web Application\n(User Interface)", shape=box];
+        MerchantPortal [fillcolor="#4A90E2", fontcolor=white, label="Merchant Portal\n(Shopkeeper Interface)", shape=box];
+    }
+    
+    // API Gateway
+    APIGateway [fillcolor="#7B68EE", fontcolor=white, label="API Gateway\n(Request Router)", shape=hexagon, style=filled];
+    
+    // Application Layer
+    subgraph cluster_app {
+        label="Application Layer";
+        style=filled;
+        fillcolor="#FFF9E6";
+        
+        RouteService [fillcolor="#F5A623", fontcolor=white, label="Route Planning\nService"];
+        CostService [fillcolor="#F5A623", fontcolor=white, label="Cost Calculation\nService"];
+        AccessibilityService [fillcolor="#F5A623", fontcolor=white, label="Accessibility\nAnalysis Service"];
+        BusinessService [fillcolor="#F5A623", fontcolor=white, label="Business Listing\nService"];
+        NavigationService [fillcolor="#F5A623", fontcolor=white, label="Navigation\nInstruction Service"];
+        AuthService [fillcolor="#F5A623", fontcolor=white, label="Authentication\nService"];
+    }
+    
+    // Data Layer
+    subgraph cluster_data {
+        label="Data Layer";
+        style=filled;
+        fillcolor="#E6FFE6";
+        
+        TransportDB [fillcolor="#50C878", fontcolor=white, label="Public Transport\nDatabase", shape=cylinder];
+        BusinessDB [fillcolor="#50C878", fontcolor=white, label="Business Listings\nDatabase", shape=cylinder];
+        UserDB [fillcolor="#50C878", fontcolor=white, label="User Data\nDatabase", shape=cylinder];
+        CacheLayer [fillcolor="#50C878", fontcolor=white, label="Cache Layer\n(Redis)", shape=cylinder];
+    }
+    
+    // External Services
+    subgraph cluster_external {
+        label="External Services";
+        style=filled;
+        fillcolor="#FFE6E6";
+        
+        TransportAPI [fillcolor="#FF6B6B", fontcolor=white, label="Public Transport\nAPI", shape=component];
+        MapAPI [fillcolor="#FF6B6B", fontcolor=white, label="Maps API\n(Location Data)", shape=component];
+        PaymentGateway [fillcolor="#FF6B6B", fontcolor=white, label="Payment Gateway\n(Listing Fees)", shape=component];
+    }
+    
+    // Client to API Gateway
+    WebApp -> APIGateway [label="HTTPS"];
+    MerchantPortal -> APIGateway [label="HTTPS"];
+    
+    // API Gateway to Services
+    APIGateway -> RouteService;
+    APIGateway -> BusinessService;
+    APIGateway -> AuthService;
+    
+    // Service Interactions
+    RouteService -> CostService [dir=both];
+    RouteService -> AccessibilityService [dir=both];
+    RouteService -> NavigationService;
+    RouteService -> BusinessService [label="nearby\nbusinesses"];
+    
+    BusinessService -> AuthService [label="verify"];
+    
+    // Services to Data Layer
+    RouteService -> TransportDB [label="query"];
+    RouteService -> CacheLayer [label="cache"];
+    CostService -> TransportDB [label="fare data"];
+    AccessibilityService -> TransportDB [label="accessibility\ndata"];
+    BusinessService -> BusinessDB [label="CRUD"];
+    AuthService -> UserDB [label="auth"];
+    NavigationService -> CacheLayer [label="cache"];
+    
+    // External API Connections
+    RouteService -> TransportAPI [label="real-time\ndata", style=dashed];
+    RouteService -> MapAPI [label="location\ndata", style=dashed];
+    BusinessService -> PaymentGateway [label="process\npayment", style=dashed];
+    
+    // Key Principles (Note)
+    Note [shape=note, fillcolor="#FFFACD", fontcolor=black, label="Key Principles:\n• No promotional bias\n• Proximity-based listing\n• Fixed listing fee\n• Cost-optimized routing\n• Accessibility-first design"];
+}

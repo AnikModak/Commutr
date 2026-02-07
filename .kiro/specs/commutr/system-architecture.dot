@@ -1,0 +1,115 @@
+digraph SystemArchitecture {
+    rankdir=LR;
+    node [fontname="Arial", fontsize=10];
+    edge [fontname="Arial", fontsize=9];
+    
+    graph [bgcolor=white, pad=0.5, nodesep=0.7, ranksep=1.2];
+    
+    // Layer 1: Client
+    subgraph cluster_client {
+        label="CLIENT LAYER";
+        style=filled;
+        fillcolor="#E3F2FD";
+        fontsize=12;
+        fontname="Arial Bold";
+        
+        WebClient [shape=box, style="rounded,filled", fillcolor="#2196F3", fontcolor=white, 
+                   label="Web Client\n(Browser UI)\n━━━━━━━━━━\n• User input\n• Route display\n• Voice interaction", 
+                   width=2.0, height=1.2];
+    }
+    
+    // Layer 2: API Gateway
+    subgraph cluster_api {
+        label="API LAYER";
+        style=filled;
+        fillcolor="#FFF3E0";
+        fontsize=12;
+        fontname="Arial Bold";
+        
+        APILayer [shape=box, style="rounded,filled", fillcolor="#FF9800", fontcolor=white, 
+                  label="API Gateway\n━━━━━━━━━━\n• Request handling\n• Authentication\n• Validation", 
+                  width=2.0, height=1.2];
+    }
+    
+    // Layer 3: Core Services
+    subgraph cluster_services {
+        label="CORE SERVICES";
+        style=filled;
+        fillcolor="#F3E5F5";
+        fontsize=12;
+        fontname="Arial Bold";
+        
+        RouteDiscovery [shape=box, style="rounded,filled", fillcolor="#9C27B0", fontcolor=white, 
+                        label="Route Discovery\nService\n━━━━━━━━━━\n• Fetch transport\n  routes\n• Query data\n  sources", 
+                        width=2.0, height=1.3];
+        
+        FareOptimization [shape=box, style="rounded,filled", fillcolor="#9C27B0", fontcolor=white, 
+                          label="Fare & Cost\nOptimization\n━━━━━━━━━━\n• Calculate fares\n• Find cheapest\n  combinations", 
+                          width=2.0, height=1.3];
+        
+        AccessibilityEngine [shape=box, style="rounded,filled", fillcolor="#9C27B0", fontcolor=white, 
+                             label="Accessibility\nAnalysis\n━━━━━━━━━━\n• Evaluate stairs\n• Walking distance\n• Transfers", 
+                             width=2.0, height=1.3];
+    }
+    
+    // Layer 4: Processing
+    subgraph cluster_processing {
+        label="PROCESSING LAYER";
+        style=filled;
+        fillcolor="#E8F5E9";
+        fontsize=12;
+        fontname="Arial Bold";
+        
+        RankingEngine [shape=box, style="rounded,filled", fillcolor="#4CAF50", fontcolor=white, 
+                       label="Ranking &\nRecommendation\n━━━━━━━━━━\n• Combine cost &\n  accessibility\n• Score routes", 
+                       width=2.0, height=1.3];
+        
+        ResponseFormatter [shape=box, style="rounded,filled", fillcolor="#4CAF50", fontcolor=white, 
+                          label="Response\nFormatter\n━━━━━━━━━━\n• Prepare final\n  response\n• Format for UI", 
+                          width=2.0, height=1.3];
+    }
+    
+    // Layer 5: Data & Business
+    subgraph cluster_data {
+        label="DATA LAYER";
+        style=filled;
+        fillcolor="#FCE4EC";
+        fontsize=12;
+        fontname="Arial Bold";
+        
+        TransportData [shape=cylinder, style=filled, fillcolor="#E91E63", fontcolor=white, 
+                       label="Transport\nData Store\n━━━━━━━━━━\n• Routes\n• Fares\n• Accessibility\n  metadata", 
+                       width=2.0, height=1.5];
+        
+        BusinessListings [shape=box, style="rounded,filled", fillcolor="#E91E63", fontcolor=white, 
+                         label="Business\nListings Module\n━━━━━━━━━━\n• Paid listings\n• Neutral display\n• No ranking bias", 
+                         width=2.0, height=1.3];
+    }
+    
+    // Data Flow Connections
+    WebClient -> APILayer [label="1. Request", fontcolor="#1976D2", color="#1976D2", penwidth=2];
+    
+    APILayer -> RouteDiscovery [label="2. Query", fontcolor="#F57C00", color="#F57C00", penwidth=2];
+    
+    RouteDiscovery -> TransportData [label="3. Fetch data", fontcolor="#7B1FA2", color="#7B1FA2", penwidth=2, style=dashed];
+    TransportData -> RouteDiscovery [label="4. Return data", fontcolor="#7B1FA2", color="#7B1FA2", penwidth=2, style=dashed];
+    
+    RouteDiscovery -> FareOptimization [label="5. Routes", fontcolor="#7B1FA2", color="#7B1FA2", penwidth=2];
+    RouteDiscovery -> AccessibilityEngine [label="6. Routes", fontcolor="#7B1FA2", color="#7B1FA2", penwidth=2];
+    
+    FareOptimization -> RankingEngine [label="7. Cost data", fontcolor="#388E3C", color="#388E3C", penwidth=2];
+    AccessibilityEngine -> RankingEngine [label="8. Access data", fontcolor="#388E3C", color="#388E3C", penwidth=2];
+    
+    BusinessListings -> RankingEngine [label="9. Nearby\nbusinesses", fontcolor="#C2185B", color="#C2185B", penwidth=1.5, style=dashed];
+    
+    RankingEngine -> ResponseFormatter [label="10. Ranked\nroutes", fontcolor="#388E3C", color="#388E3C", penwidth=2];
+    
+    ResponseFormatter -> APILayer [label="11. Formatted\nresponse", fontcolor="#F57C00", color="#F57C00", penwidth=2];
+    
+    APILayer -> WebClient [label="12. Final\nresponse", fontcolor="#1976D2", color="#1976D2", penwidth=2];
+    
+    // Key Principles Box
+    Principles [shape=note, style=filled, fillcolor="#FFFDE7", fontcolor=black, 
+                label="KEY PRINCIPLES\n━━━━━━━━━━━━━━━━\n✓ Single responsibility per component\n✓ Clear data flow\n✓ No promotional bias\n✓ Cost-optimized routing\n✓ Accessibility-first design", 
+                width=2.5, height=1.5];
+}

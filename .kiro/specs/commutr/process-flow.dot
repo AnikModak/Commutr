@@ -1,0 +1,84 @@
+digraph ProcessFlow {
+    rankdir=TB;
+    node [shape=box, style="rounded,filled", fontname="Arial", fontsize=10];
+    edge [fontname="Arial", fontsize=9];
+    
+    // Styling
+    graph [bgcolor=white, pad=0.5, ranksep=0.8, nodesep=0.6];
+    
+    // Start
+    Start [shape=ellipse, fillcolor="#90EE90", label="START", fontsize=12, fontcolor=black];
+    
+    // User Actions
+    subgraph cluster_user {
+        label="User Actions";
+        style=filled;
+        fillcolor="#E6F3FF";
+        
+        OpenApp [fillcolor="#4A90E2", fontcolor=white, label="Open\nApplication"];
+        InputLocations [fillcolor="#4A90E2", fontcolor=white, label="Input Source &\nDestination"];
+        SelectPrefs [fillcolor="#4A90E2", fontcolor=white, label="Select Travel\nPreferences\n(cost, accessibility)"];
+        SubmitRequest [fillcolor="#4A90E2", fontcolor=white, label="Submit Route\nRequest"];
+    }
+    
+    // System Processing
+    subgraph cluster_system {
+        label="System Processing";
+        style=filled;
+        fillcolor="#FFF9E6";
+        
+        ValidateInput [fillcolor="#F5A623", fontcolor=white, label="Validate\nInput Data"];
+        AnalyzeRoutes [fillcolor="#F5A623", fontcolor=white, label="Analyze Public\nTransport Routes"];
+        EvaluateFares [fillcolor="#F5A623", fontcolor=white, label="Evaluate Fares &\nAccessibility"];
+        SelectOptimal [fillcolor="#F5A623", fontcolor=white, label="Select Optimal\nRoute"];
+        IdentifyBusiness [fillcolor="#F5A623", fontcolor=white, label="Identify Nearby\nBusinesses"];
+        EnsureUnbiased [fillcolor="#F5A623", fontcolor=white, label="Ensure Unbiased\nListing\n(proximity only)"];
+        GenerateNav [fillcolor="#F5A623", fontcolor=white, label="Generate\nNavigation\nInstructions"];
+    }
+    
+    // Output
+    PresentResults [fillcolor="#50C878", fontcolor=white, label="Present Results:\n• Route\n• Cost\n• Accessibility\n• Nearby Businesses", shape=box, style="rounded,filled"];
+    
+    // End
+    End [shape=ellipse, fillcolor="#FF6B6B", fontcolor=white, label="END", fontsize=12];
+    
+    // Main Flow
+    Start -> OpenApp;
+    OpenApp -> InputLocations;
+    InputLocations -> SelectPrefs;
+    SelectPrefs -> SubmitRequest;
+    SubmitRequest -> ValidateInput;
+    ValidateInput -> AnalyzeRoutes;
+    AnalyzeRoutes -> EvaluateFares;
+    EvaluateFares -> SelectOptimal;
+    SelectOptimal -> IdentifyBusiness;
+    IdentifyBusiness -> EnsureUnbiased;
+    EnsureUnbiased -> GenerateNav;
+    GenerateNav -> PresentResults;
+    PresentResults -> End;
+    
+    // Shopkeeper Flow (Parallel)
+    ShopStart [shape=ellipse, fillcolor="#90EE90", label="SHOPKEEPER\nSTART", fontsize=11, fontcolor=black];
+    
+    subgraph cluster_shopkeeper {
+        label="Shopkeeper Actions";
+        style=filled;
+        fillcolor="#FFE6F0";
+        
+        RegisterBiz [fillcolor="#E91E63", fontcolor=white, label="Register\nBusiness"];
+        SubmitDetails [fillcolor="#E91E63", fontcolor=white, label="Submit Business\nDetails\n(name, category,\nlocation)"];
+        PayFee [fillcolor="#E91E63", fontcolor=white, label="Pay Fixed\nListing Fee"];
+        GetListed [fillcolor="#E91E63", fontcolor=white, label="Business Listed\n(No Promotional\nBias)"];
+    }
+    
+    ShopEnd [shape=ellipse, fillcolor="#FF6B6B", fontcolor=white, label="SHOPKEEPER\nEND", fontsize=11];
+    
+    ShopStart -> RegisterBiz;
+    RegisterBiz -> SubmitDetails;
+    SubmitDetails -> PayFee;
+    PayFee -> GetListed;
+    GetListed -> ShopEnd;
+    
+    // Data flow connection
+    GetListed -> IdentifyBusiness [style=dashed, label="business data", color="#666666", constraint=false];
+}
