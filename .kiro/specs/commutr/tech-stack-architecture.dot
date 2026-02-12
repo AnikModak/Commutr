@@ -1,0 +1,100 @@
+digraph TechStackArchitecture {
+    rankdir=LR;
+    node [fontname="Arial", fontsize=10, shape=box];
+    edge [fontname="Arial", fontsize=9];
+    
+    graph [bgcolor=white, pad=0.5, nodesep=0.8, ranksep=1.5];
+    
+    // FRONTEND LAYER
+    subgraph cluster_frontend {
+        label="FRONTEND\n(User Interface)";
+        style=filled;
+        fillcolor="#E3F2FD";
+        fontsize=12;
+        fontname="Arial Bold";
+        
+        Frontend [shape=box, style="rounded,filled", fillcolor="#FFFFFF", fontcolor=black,
+                  label="Web + Mobile Client\n\n⚛️ React\n📘 TypeScript\n🎨 Tailwind CSS\n🗺️ Mapbox",
+                  width=2.5, height=2.0];
+    }
+    
+    // BACKEND LAYER
+    subgraph cluster_backend {
+        label="BACKEND SERVICES";
+        style=filled;
+        fillcolor="#FFF3E0";
+        fontsize=12;
+        fontname="Arial Bold";
+        
+        Backend [shape=box, style="rounded,filled", fillcolor="#FFFFFF", fontcolor=black,
+                 label="API Server\n\n🟢 Node.js\n⚡ Express.js\n🔌 REST API\n\n• Route handling\n• Business logic\n• API orchestration",
+                 width=2.5, height=2.0];
+    }
+    
+    // AI LAYER
+    subgraph cluster_ai {
+        label="AI & INTELLIGENCE";
+        style=filled;
+        fillcolor="#F3E5F5";
+        fontsize=12;
+        fontname="Arial Bold";
+        
+        AI [shape=box, style="rounded,filled", fillcolor="#FFFFFF", fontcolor=black,
+            label="Intelligence Engine\n\n🐍 Python\n⚡ FastAPI\n🤖 LLM\n\n• Route understanding\n• Cheapest path reasoning\n• Multilingual responses",
+            width=2.5, height=2.0];
+    }
+    
+    // DATA LAYER
+    subgraph cluster_data {
+        label="DATA & STORAGE";
+        style=filled;
+        fillcolor="#E8F5E9";
+        fontsize=12;
+        fontname="Arial Bold";
+        
+        Data [shape=box, style="rounded,filled", fillcolor="#FFFFFF", fontcolor=black,
+              label="Database Layer\n\n🐘 PostgreSQL\n🌍 PostGIS\n⚡ Redis\n\n• Transport data\n• User preferences\n• Fast caching",
+              width=2.5, height=2.0];
+    }
+    
+    // CLOUD LAYER
+    subgraph cluster_cloud {
+        label="CLOUD INFRASTRUCTURE (AWS)";
+        style=filled;
+        fillcolor="#FFF9C4";
+        fontsize=12;
+        fontname="Arial Bold";
+        
+        Cloud [shape=box, style="rounded,filled", fillcolor="#FFFFFF", fontcolor=black,
+               label="AWS Services\n\n☁️ EC2\n💾 RDS\n📦 S3\n🌐 CloudFront\n\n• Scalability\n• Reliability\n• Secure deployment",
+               width=2.5, height=2.0];
+    }
+    
+    // ACCESSIBILITY LAYER (Bottom strip)
+    subgraph cluster_accessibility {
+        label="ACCESSIBILITY & INCLUSION";
+        style=filled;
+        fillcolor="#FCE4EC";
+        fontsize=12;
+        fontname="Arial Bold";
+        
+        Accessibility [shape=box, style="rounded,filled", fillcolor="#FFFFFF", fontcolor=black,
+                      label="♿ WCAG Compliance  |  🎤 Voice Navigation  |  🌐 Multilingual Support",
+                      width=13.0, height=0.8];
+    }
+    
+    // Data flow connections
+    Frontend -> Backend [label="HTTPS", penwidth=2, color="#1976D2"];
+    Backend -> AI [label="API Calls", penwidth=2, color="#7B1FA2"];
+    Backend -> Data [label="Queries", penwidth=2, color="#388E3C"];
+    AI -> Data [label="Data Access", penwidth=2, color="#7B1FA2", style=dashed];
+    Cloud -> Backend [label="Hosting", penwidth=2, color="#F57C00", style=dashed];
+    Cloud -> Data [label="Storage", penwidth=2, color="#F57C00", style=dashed];
+    
+    // Accessibility connections
+    Frontend -> Accessibility [style=invis];
+    
+    // Title
+    Title [shape=plaintext, label="COMMUTR - PUBLIC TRANSPORT HELPER\nTech Stack Architecture", 
+           fontsize=16, fontname="Arial Bold", fontcolor="#1976D2"];
+}

@@ -1,0 +1,101 @@
+digraph TwoStoreyProcessFlow {
+    rankdir=LR;
+    node [fontname="Arial", fontsize=10];
+    edge [fontname="Arial", fontsize=9];
+    
+    graph [bgcolor=white, pad=0.5, nodesep=0.8, ranksep=1.5];
+    
+    // Define ranks for two-storey layout
+    
+    // Start node
+    Start [shape=ellipse, style=filled, fillcolor="#4CAF50", fontcolor=white, label="START", width=1.0, height=0.6];
+    
+    // USER LAYER (Top storey)
+    {
+        rank=same;
+        
+        U1 [shape=box, style="rounded,filled", fillcolor="#2196F3", fontcolor=white, 
+            label="User Opens\nWeb App", width=1.4, height=0.7];
+        
+        U2 [shape=box, style="rounded,filled", fillcolor="#2196F3", fontcolor=white, 
+            label="User Enters\nSource &\nDestination", width=1.4, height=0.8];
+        
+        U3 [shape=box, style="rounded,filled", fillcolor="#2196F3", fontcolor=white, 
+            label="User Selects\nPreferences:\n• Cheapest route\n• Accessibility\n• Walking limit", width=1.6, height=1.0];
+        
+        U4 [shape=box, style="rounded,filled", fillcolor="#2196F3", fontcolor=white, 
+            label="User Receives:\n• Final route\n• Cost breakdown\n• Accessibility info", width=1.6, height=0.9];
+    }
+    
+    // SYSTEM LAYER (Bottom storey)
+    {
+        rank=same;
+        
+        S1 [shape=box, style="rounded,filled", fillcolor="#FF9800", fontcolor=white, 
+            label="System\nValidates\nInputs", width=1.4, height=0.7];
+        
+        S2 [shape=box, style="rounded,filled", fillcolor="#FF9800", fontcolor=white, 
+            label="System Fetches\nAvailable\nPublic Transport\nRoutes", width=1.6, height=0.9];
+        
+        S3 [shape=box, style="rounded,filled", fillcolor="#FF9800", fontcolor=white, 
+            label="System\nCalculates\nEstimated Fare\nfor Each Route", width=1.6, height=0.9];
+        
+        S4 [shape=box, style="rounded,filled", fillcolor="#FF9800", fontcolor=white, 
+            label="System Checks\nAccessibility:\n• Stairs\n• Walking distance\n• Transfers", width=1.6, height=1.0];
+        
+        D1 [shape=diamond, style=filled, fillcolor="#FFC107", fontcolor=black, 
+            label="Accessible\nRoutes\nAvailable?", width=1.6, height=1.0];
+        
+        S5 [shape=box, style="rounded,filled", fillcolor="#FF5722", fontcolor=white, 
+            label="Show Closest\nPossible\nAlternative", width=1.4, height=0.8];
+        
+        S6 [shape=box, style="rounded,filled", fillcolor="#FF9800", fontcolor=white, 
+            label="System Ranks\nRoutes by:\n• Lowest cost\n• Accessibility\n  score", width=1.6, height=0.9];
+        
+        S7 [shape=box, style="rounded,filled", fillcolor="#FF9800", fontcolor=white, 
+            label="System\nGenerates\nStep-by-Step\nInstructions", width=1.6, height=0.9];
+    }
+    
+    // End node
+    End [shape=ellipse, style=filled, fillcolor="#4CAF50", fontcolor=white, label="END", width=1.0, height=0.6];
+    
+    // USER LAYER FLOW (horizontal)
+    Start -> U1;
+    U1 -> U2;
+    U2 -> U3;
+    
+    // Connection from user to system
+    U3 -> S1 [label="Submit", fontcolor="#666666", style=dashed];
+    
+    // SYSTEM LAYER FLOW (horizontal)
+    S1 -> S2;
+    S2 -> S3;
+    S3 -> S4;
+    S4 -> D1;
+    
+    // Decision branches
+    D1 -> S6 [label="Yes", fontcolor="#4CAF50", color="#4CAF50", penwidth=2];
+    D1 -> S5 [label="No", fontcolor="#F44336", color="#F44336", penwidth=2];
+    S5 -> S6 [style=dashed];
+    
+    S6 -> S7;
+    
+    // Connection from system back to user
+    S7 -> U4 [label="Display", fontcolor="#666666", style=dashed];
+    
+    // Final connection
+    U4 -> End;
+    
+    // Layer labels
+    UserLayer [shape=plaintext, label="USER LAYER", fontsize=12, fontname="Arial Bold", fontcolor="#2196F3"];
+    SystemLayer [shape=plaintext, label="SYSTEM LAYER", fontsize=12, fontname="Arial Bold", fontcolor="#FF9800"];
+    
+    // Position layer labels
+    {rank=same; UserLayer; U1;}
+    {rank=same; SystemLayer; S1;}
+    
+    // Legend
+    Legend [shape=box, style="rounded,filled", fillcolor="#EEEEEE", fontcolor=black, 
+            label="LEGEND\n━━━━━━━━━━━━━━\nBlue = User Action\nOrange = System Process\nYellow = Decision Point\nRed = Alternative Path\nDashed = Layer Transition", 
+            width=2.0, height=1.3];
+}

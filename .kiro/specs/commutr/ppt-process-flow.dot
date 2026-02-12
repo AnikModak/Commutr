@@ -1,0 +1,80 @@
+digraph PPTProcessFlow {
+    rankdir=LR;
+    node [fontname="Arial", fontsize=11];
+    edge [fontname="Arial", fontsize=10];
+    
+    graph [bgcolor=white, pad=0.3, nodesep=0.4, ranksep=0.6, size="16,6!"];
+    
+    // Start
+    Start [shape=ellipse, style=filled, fillcolor="#4CAF50", fontcolor=white, label="START", width=1.0, height=0.6, fixedsize=true];
+    
+    // Step 1
+    Step1 [shape=box, style="rounded,filled", fillcolor="#2196F3", fontcolor=white, 
+           label="User Opens\nWeb App", width=1.3, height=0.7, fixedsize=true];
+    
+    // Step 2
+    Step2 [shape=box, style="rounded,filled", fillcolor="#2196F3", fontcolor=white, 
+           label="User Enters\nSource &\nDestination", width=1.3, height=0.8, fixedsize=true];
+    
+    // Step 3
+    Step3 [shape=box, style="rounded,filled", fillcolor="#2196F3", fontcolor=white, 
+           label="User Selects\nPreferences", width=1.3, height=0.7, fixedsize=true];
+    
+    // Step 4
+    Step4 [shape=box, style="rounded,filled", fillcolor="#FF9800", fontcolor=white, 
+           label="System\nValidates\nInputs", width=1.3, height=0.8, fixedsize=true];
+    
+    // Step 5
+    Step5 [shape=box, style="rounded,filled", fillcolor="#FF9800", fontcolor=white, 
+           label="System Fetches\nTransport\nRoutes", width=1.3, height=0.8, fixedsize=true];
+    
+    // Step 6
+    Step6 [shape=box, style="rounded,filled", fillcolor="#FF9800", fontcolor=white, 
+           label="System\nCalculates\nFares", width=1.3, height=0.8, fixedsize=true];
+    
+    // Step 7
+    Step7 [shape=box, style="rounded,filled", fillcolor="#FF9800", fontcolor=white, 
+           label="System Checks\nAccessibility", width=1.3, height=0.7, fixedsize=true];
+    
+    // Decision
+    Decision [shape=diamond, style=filled, fillcolor="#FFC107", fontcolor=black, 
+              label="Accessible\nRoutes?", width=1.4, height=1.0, fixedsize=true];
+    
+    // Alternative
+    Alternative [shape=box, style="rounded,filled", fillcolor="#FF5722", fontcolor=white, 
+                 label="Show\nAlternative", width=1.3, height=0.7, fixedsize=true];
+    
+    // Step 9
+    Step9 [shape=box, style="rounded,filled", fillcolor="#FF9800", fontcolor=white, 
+           label="System Ranks\nRoutes", width=1.3, height=0.7, fixedsize=true];
+    
+    // Step 10
+    Step10 [shape=box, style="rounded,filled", fillcolor="#FF9800", fontcolor=white, 
+            label="System\nGenerates\nInstructions", width=1.3, height=0.8, fixedsize=true];
+    
+    // Step 11
+    Step11 [shape=box, style="rounded,filled", fillcolor="#2196F3", fontcolor=white, 
+            label="User Receives\nResults", width=1.3, height=0.7, fixedsize=true];
+    
+    // End
+    End [shape=ellipse, style=filled, fillcolor="#4CAF50", fontcolor=white, label="END", width=1.0, height=0.6, fixedsize=true];
+    
+    // Flow connections
+    Start -> Step1 [penwidth=2];
+    Step1 -> Step2 [penwidth=2];
+    Step2 -> Step3 [penwidth=2];
+    Step3 -> Step4 [penwidth=2];
+    Step4 -> Step5 [penwidth=2];
+    Step5 -> Step6 [penwidth=2];
+    Step6 -> Step7 [penwidth=2];
+    Step7 -> Decision [penwidth=2];
+    
+    // Decision branches
+    Decision -> Step9 [label="Yes", fontcolor="#4CAF50", color="#4CAF50", penwidth=2.5];
+    Decision -> Alternative [label="No", fontcolor="#F44336", color="#F44336", penwidth=2.5];
+    Alternative -> Step9 [style=dashed, penwidth=1.5];
+    
+    Step9 -> Step10 [penwidth=2];
+    Step10 -> Step11 [penwidth=2];
+    Step11 -> End [penwidth=2];
+}

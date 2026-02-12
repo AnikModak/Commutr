@@ -1,0 +1,93 @@
+digraph PPTWideFlow {
+    rankdir=LR;
+    node [fontname="Arial", fontsize=10];
+    edge [fontname="Arial", fontsize=9];
+    
+    graph [bgcolor=white, pad=0.4, nodesep=1.2, ranksep=2.0];
+    
+    // Start
+    Start [shape=ellipse, style=filled, fillcolor="#4CAF50", fontcolor=white, label="START", width=0.9, height=0.6];
+    
+    // USER LAYER (Top row)
+    U1 [shape=box, style="rounded,filled", fillcolor="#2196F3", fontcolor=white, 
+        label="User Opens\nWeb App", width=1.2, height=0.6];
+    
+    U2 [shape=box, style="rounded,filled", fillcolor="#2196F3", fontcolor=white, 
+        label="User Enters\nSource &\nDestination", width=1.2, height=0.7];
+    
+    U3 [shape=box, style="rounded,filled", fillcolor="#2196F3", fontcolor=white, 
+        label="User Selects\nPreferences", width=1.2, height=0.6];
+    
+    U4 [shape=box, style="rounded,filled", fillcolor="#2196F3", fontcolor=white, 
+        label="User Receives\nResults", width=1.2, height=0.6];
+    
+    // SYSTEM LAYER (Bottom row)
+    S1 [shape=box, style="rounded,filled", fillcolor="#FF9800", fontcolor=white, 
+        label="Validate\nInputs", width=1.2, height=0.6];
+    
+    S2 [shape=box, style="rounded,filled", fillcolor="#FF9800", fontcolor=white, 
+        label="Fetch\nRoutes", width=1.2, height=0.6];
+    
+    S3 [shape=box, style="rounded,filled", fillcolor="#FF9800", fontcolor=white, 
+        label="Calculate\nFares", width=1.2, height=0.6];
+    
+    S4 [shape=box, style="rounded,filled", fillcolor="#FF9800", fontcolor=white, 
+        label="Check\nAccessibility", width=1.2, height=0.6];
+    
+    D1 [shape=diamond, style=filled, fillcolor="#FFC107", fontcolor=black, 
+        label="Accessible?", width=1.2, height=0.8];
+    
+    S5 [shape=box, style="rounded,filled", fillcolor="#FF5722", fontcolor=white, 
+        label="Show\nAlternative", width=1.2, height=0.6];
+    
+    S6 [shape=box, style="rounded,filled", fillcolor="#FF9800", fontcolor=white, 
+        label="Rank\nRoutes", width=1.2, height=0.6];
+    
+    S7 [shape=box, style="rounded,filled", fillcolor="#FF9800", fontcolor=white, 
+        label="Generate\nInstructions", width=1.2, height=0.6];
+    
+    // End
+    End [shape=ellipse, style=filled, fillcolor="#4CAF50", fontcolor=white, label="END", width=0.9, height=0.6];
+    
+    // Force horizontal alignment using ranks
+    {rank=same; Start; U1; U2; U3; U4; End;}
+    {rank=same; S1; S2; S3; S4; D1; S5; S6; S7;}
+    
+    // USER LAYER FLOW
+    Start -> U1 [penwidth=2.5, color="#2196F3"];
+    U1 -> U2 [penwidth=2.5, color="#2196F3"];
+    U2 -> U3 [penwidth=2.5, color="#2196F3"];
+    
+    // User to System transition
+    U3 -> S1 [penwidth=2, color="#666666", style=dashed, label="Submit"];
+    
+    // SYSTEM LAYER FLOW
+    S1 -> S2 [penwidth=2.5, color="#FF9800"];
+    S2 -> S3 [penwidth=2.5, color="#FF9800"];
+    S3 -> S4 [penwidth=2.5, color="#FF9800"];
+    S4 -> D1 [penwidth=2.5, color="#FF9800"];
+    
+    // Decision branches
+    D1 -> S6 [label="Yes", fontcolor="#4CAF50", color="#4CAF50", penwidth=3];
+    D1 -> S5 [label="No", fontcolor="#F44336", color="#F44336", penwidth=3];
+    S5 -> S6 [style=dashed, penwidth=2, color="#FF5722"];
+    
+    S6 -> S7 [penwidth=2.5, color="#FF9800"];
+    
+    // System to User transition
+    S7 -> U4 [penwidth=2, color="#666666", style=dashed, label="Display"];
+    
+    // Final flow
+    U4 -> End [penwidth=2.5, color="#2196F3"];
+    
+    // Layer labels
+    UserLabel [shape=plaintext, label="USER LAYER", fontsize=11, fontname="Arial Bold", fontcolor="#2196F3"];
+    SystemLabel [shape=plaintext, label="SYSTEM LAYER", fontsize=11, fontname="Arial Bold", fontcolor="#FF9800"];
+    
+    // Position labels at the start
+    UserLabel -> U1 [style=invis];
+    SystemLabel -> S1 [style=invis];
+    
+    {rank=min; UserLabel;}
+    {rank=min; SystemLabel;}
+}
