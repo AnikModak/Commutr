@@ -1,6 +1,7 @@
 # 🚍 Commutr - Smart Public Transport Helper
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 [![PRs not-accepting](https://img.shields.io/badge/PRs-not%20accepting-red.svg)](http://makeapullrequest.com)
 
 
