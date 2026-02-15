@@ -510,9 +510,9 @@ Commutr is an AI-powered urban mobility intelligence platform that transforms ho
 ---
 
 <p align="center">
-  <strong>CommuteR - Making Public Transport Intelligent, Accessible, and Affordable for Every Indian</strong>
+  <strong>Commutr - Making Public Transport Intelligent, Accessible, and Affordable for Every Indian</strong>
 </p>
 
 <p align="center">
-  Built with ❤️ for Bharat's Commuters
+  Built with ❤️ for the commuters of Bharat
 </p>
