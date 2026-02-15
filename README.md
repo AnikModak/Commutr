@@ -219,7 +219,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Challenge**: AI for Retail, Commerce & Market Intelligence
 
-CommuteR directly addresses the core objectives of **decision-making, efficiency, and user experience** within the real-world ecosystem of urban public transport. By leveraging AI to analyze multi-modal transport options, fare structures, and accessibility constraints, we enable millions of daily commuters to make optimal travel decisions—reducing costs, saving time, and improving the overall user experience of India's public transport infrastructure.
+Commutr directly addresses the core objectives of **decision-making, efficiency, and user experience** within the real-world ecosystem of urban public transport. By leveraging AI to analyze multi-modal transport options, fare structures, and accessibility constraints, we enable millions of daily commuters to make optimal travel decisions—reducing costs, saving time, and improving the overall user experience of India's public transport infrastructure.
 
 This solution creates a **data-driven ecosystem** where commuters, transport authorities, and local businesses benefit from intelligent mobility insights, making it a deployable real-world solution for India's rapidly urbanizing cities.
 
@@ -227,7 +227,7 @@ This solution creates a **data-driven ecosystem** where commuters, transport aut
 
 ## 💡 Our Solution
 
-CommuteR is an AI-powered urban mobility intelligence platform that transforms how Indians navigate public transport. The platform analyzes real-time transport data, fare structures, accessibility constraints, and road conditions to deliver personalized, cost-optimized route recommendations.
+Commutr is an AI-powered urban mobility intelligence platform that transforms how Indians navigate public transport. The platform analyzes real-time transport data, fare structures, accessibility constraints, and road conditions to deliver personalized, cost-optimized route recommendations.
 
 **Core Value Proposition**:
 - Find the cheapest route across buses, trains, metros, and shared transport
