@@ -198,9 +198,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- Public transport data providers
-- Open-source community
-- Contributors and testers
+- Organizers and mentors of AWS AI for Bharat Hackathon for the opportunity and guidance
+- Open-source community for tools, libraries, and inspiration
+- Public transport/ Map data providers used for prototyping
+- All peers who gave their valuable feedbacks
 
 ## 📞 Contact
 
