@@ -1,6 +1,5 @@
-# 🚍 CommuteR – AI-Powered Public Transport Intelligence Platform
+# 🚍 Commutr – AI-Powered Public Transport Intelligence Platform
 
-<<<<<<< HEAD
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PRs not-accepting](https://img.shields.io/badge/PRs-not%20accepting-red.svg)](http://makeapullrequest.com)
 
@@ -474,15 +473,12 @@ CommuteR is an AI-powered urban mobility intelligence platform that transforms h
 
 ## 👥 Team Details
 
-**Team Name**: [Your Team Name]
+**Team Name**: [Phosphorescence]
 
 **Team Members**:
-- **[Name]** - [Role] - [LinkedIn/GitHub]
-- **[Name]** - [Role] - [LinkedIn/GitHub]
-- **[Name]** - [Role] - [LinkedIn/GitHub]
-- **[Name]** - [Role] - [LinkedIn/GitHub]
+- **[Some Subhra Gupta]** - [Leader] - [ashore-101](https://github.com/ashore-101)
+- **[Anik Modak]** - [Member] - [AnikModak](https://github.com/AnikModak)
 
-**Mentor/Guide**: [If applicable]
 
 ---
 
@@ -501,7 +497,7 @@ CommuteR is an AI-powered urban mobility intelligence platform that transforms h
 - **System Architecture**: `.kiro/specs/commutr/system-architecture.jpg`
 - **Process Flow**: `.kiro/specs/commutr/detailed-process-flow.jpg`
 - **Tech Stack Diagram**: `.kiro/specs/commutr/tech-stack-architecture.jpg`
-- **Documentation**: Complete Wiki in `wiki/` directory
+
 
 ---
 
