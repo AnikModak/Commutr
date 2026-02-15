@@ -207,12 +207,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Project Link**: [https://github.com/AnikModak/commutr](https://github.com/AnikModak/commutr)
 - **Issues**: [https://github.com/AnikModak/commutr/issues](https://github.com/AnikModak/commutr/issues)
 
-=======
 > Transforming urban mobility through intelligent route optimization and data-driven decision-making for Bharat's commuters
 
 [![AI for Bharat Hackathon](https://img.shields.io/badge/Hackathon-AI%20for%20Bharat-blue)](https://github.com)
 [![Problem Statement](https://img.shields.io/badge/PS-AI%20for%20Retail%20%26%20Commerce-green)](https://github.com)
->>>>>>> a8d28d2 (Rewritten README)
 
 ---
 
@@ -506,7 +504,7 @@ CommuteR is an AI-powered urban mobility intelligence platform that transforms h
 **Hackathon**: AI for Bharat  
 **Problem Statement**: PS1 - AI for Retail, Commerce & Market Intelligence  
 **Category**: Real-World AI Solutions  
-**Submission Date**: [Date]
+**Submission Date**: [14.02.2026]
 
 ---
 
