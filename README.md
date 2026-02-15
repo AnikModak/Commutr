@@ -460,13 +460,13 @@ Commutr is an AI-powered urban mobility intelligence platform that transforms ho
 ✅ Web interface with map visualization  
 ✅ AI-powered route optimization  
 
-🚧 Voice navigation (in development)  
+🚧 Voice navigation (planned)  
 🚧 Real-time updates (planned)  
 🚧 Mobile apps (roadmap)  
 
-**Live Demo**: [Available on request]  
+**Live Demo**: [In the later part of the Hacakthon]  
 **Architecture Diagrams**: Available in `.kiro/specs/commutr/` directory  
-**Technical Documentation**: Comprehensive Wiki available
+
 
 ---
 
