@@ -502,7 +502,7 @@ Commutr is an AI-powered urban mobility intelligence platform that transforms ho
 
 ## 🏆 Hackathon Submission
 
-**Hackathon**: AI for Bharat  
+**Hackathon**: AWS AI for Bharat  
 **Problem Statement**: PS1 - AI for Retail, Commerce & Market Intelligence  
 **Category**: Real-World AI Solutions  
 **Submission Date**: [14.02.2026]
