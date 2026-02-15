@@ -8,7 +8,7 @@
 
 ## 🌟 Overview
 
-Commutr is a web-based platform designed to solve two key challenges:
+Commutr is a platform designed to solve two key challenges:
 1. **For Commuters**: Finding optimal public transport routes based on cost and accessibility needs
 2. **For Local Businesses**: Gaining fair visibility along popular routes without promotional bias
 
